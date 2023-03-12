@@ -23,6 +23,8 @@
 
 // Difficulty: easy
 // Time: 20 min
+// Leetcode link: https://leetcode.com/problems/merge-two-sorted-lists/description/
+
 
 /**
  * Definition for singly-linked list.

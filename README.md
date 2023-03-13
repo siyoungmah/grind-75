@@ -14,5 +14,5 @@ Hello hello! I’ll be posting algos everyday at 10am! Feel free to work on thes
 ## How To Test
 JS: `npm run test-solo [ALGO-FILE-NAME]`
 TS: 
-1. run `tsc challenges/typescript/[ALGO-FILE-NAME]
+1. run `tsc challenges/typescript/[ALGO-FILE-NAME]`
 2. `npm run test-solo [ALGO-FILE-NAME] typescript`

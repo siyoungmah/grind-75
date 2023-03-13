@@ -5,7 +5,7 @@ if [ -z $1 ]; then
   echo -en '\n'
   echo -e "\033[0;31mMake sure to format the command properly:\033[0m"
   echo -en '\n'
-  echo -e "\033[01;36mCorrect Syntax:\033[0m 'npm run testHH <hh name>' "; 
+  echo -e "\033[01;36mCorrect Syntax:\033[0m 'npm run test-solo <hh name>' "; 
   echo -en '\n'
 # check to ensure that the test file being requested exists
 elif [ ! -f "./__tests__/$1" ] && [ ! -f "./__tests__/$1.js" ]; then

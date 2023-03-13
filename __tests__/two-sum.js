@@ -13,4 +13,4 @@ describe('twoSum test', () => {
     expect(twoSum([3,2,4], 6)).toEqual(expect.arrayContaining([1,2]));
     expect(twoSum([3,3], 6)).toEqual(expect.arrayContaining([1,0]));
   });
-});g
+});

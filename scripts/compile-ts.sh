@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# check to see if they passed in which hack hour they want to test
+# check to see if they passed in which ts file they want to compile
 if [ -z $1 ]; then
   echo -en '\n'
   echo -e "\033[0;31mMake sure to format the command properly:\033[0m"
@@ -31,7 +31,7 @@ elif [ $2 ]; then
       tsc --target es2022 --strict true --module commonjs --noImplicitAny true $2/typescript/$1.ts
     fi
   fi
-# run the test file
+# else, run the test file for files in challenges
 else 
   if [ ! -f "./challenges/typescript/$1" ] && [ ! -f "./challenges/typescript/$1.ts" ]; then
     echo -en '\n'

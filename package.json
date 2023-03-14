@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "test-solo": "bash ./scripts/run-test.sh",
-    "ts": "bash ./scripts/compile-ts.sh"
+    "ts-compile": "bash ./scripts/compile-ts.sh",
+    "create-new": "bash ./scripts/create-new-challenges.sh"
   },
   "repository": {
     "type": "git",

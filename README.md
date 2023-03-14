@@ -14,10 +14,11 @@ Hello hello! I’ll be posting algos everyday at 10am! Feel free to work on thes
 ### Week 0
 - Day 1: [merge-two-lists](https://leetcode.com/problems/merge-two-sorted-lists/)(Easy, 20 min), [invert-tree](https://leetcode.com/problems/invert-binary-tree/)(Easy, 15 min)
 - Day 2: [valid-anagram](https://leetcode.com/problems/valid-anagram/)(Easy, 15 min), [flood-fill](https://leetcode.com/problems/flood-fill/)(Easy, 20 min)
+- Day 3: [binary-search](https://leetcode.com/problems/binary-search/)(Easy, 15 min), [maximum-subarray](https://leetcode.com/problems/maximum-subarray/)(Medium, 20 min)
 
 ## How To Test
 JS: `npm run test-solo [ALGO-FILE-NAME]`
 
 TS: 
-1. run `tsc challenges/typescript/[ALGO-FILE-NAME]`
+1. `npm run ts-compile [ALGO-FILE-NAME]`
 2. `npm run test-solo [ALGO-FILE-NAME] typescript`

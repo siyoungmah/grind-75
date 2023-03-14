@@ -15,7 +15,7 @@
 // Example 3:
 // Input: list1 = [], list2 = [0]
 // Output: [0]
- 
+
 // Constraints:
 // - The number of nodes in both lists is in the range [0, 50].
 // - -100 <= Node.val <= 100
@@ -26,37 +26,35 @@
 // Leetcode link: https://leetcode.com/problems/merge-two-sorted-lists/description/
 
 
-/**
- * Definition for singly-linked list.
- * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
- * }
- */
+//  Definition for singly-linked list.
+function ListNode(val, next) {
+  this.val = (val === undefined ? 0 : val)
+  this.next = (next === undefined ? null : next)
+}
 
 /**
  * @param {ListNode} list1
  * @param {ListNode} list2
  * @return {ListNode}
  */
+const mergeTwoLists = function (list1, list2) {
+  const mergedHead = new ListNode();
+  let currentNode = mergedHead;
 
-interface NodeType {
-  val: number,
-  next: null | NodeType
-}
-
-class ListNode implements NodeType {
-  val: number;
-  next: null | NodeType;
-
-  constructor(val?: number, next?: NodeType){
-    this.val = (val === undefined ? 0 : val);
-    this.next = (next === undefined ? null : next);
+  while(list1 && list2){
+    if(list1.val < list2.val){
+      currentNode.next = list1;
+      list1 = list1.next;
+    }
+    else{
+      currentNode.next = list2;
+      list2 = list2.next;
+    }
+    currentNode = currentNode.next;
   }
-}
 
-const mergeTwoLists = function(list1: ListNode, list2: ListNode) {
-    
+  currentNode.next = list1 || list2 || null;
+  return mergedHead.next;
 };
 
-module.exports = {ListNode, mergeTwoLists};
+module.exports = { ListNode, mergeTwoLists };

@@ -28,8 +28,6 @@ describe('invertTree tests', () => {
 
   it('works for undefined/null inputs', () => {
     const invertedNull = invertTree();
-    expect(invertedNull.val).toEqual(0);
-    expect(invertedNull.left).toBeNull();
-    expect(invertedNull.right).toBeNull();
+    expect(invertedNull).toBeNull();
   });
 });

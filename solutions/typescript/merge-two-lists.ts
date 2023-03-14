@@ -56,7 +56,51 @@ class ListNode implements NodeType {
 }
 
 const mergeTwoLists = function(list1: ListNode, list2: ListNode) {
-    
+  // edge-cases: undefined inputs
+  if(!list1 && !list2) return null;
+  if(!list1) return list2;
+  if(!list2) return list1;
+  
+  // use a two-pointer system
+  let p1: ListNode | null = list1;
+  let p2: ListNode | null= list2;
+
+
+  // figure out what to start with
+  const mergedListHead: ListNode = new ListNode(); 
+  let mergedList: ListNode = mergedListHead;
+  if(p1.val < p2.val){
+    mergedListHead.val = p1.val;
+    p1 = p1.next;
+  }
+  else{
+    mergedListHead.val = p2.val;
+    p2 = p2.next;
+  }
+
+  while(p1 || p2){
+    if(!p1) {
+      mergedList.next = p2;
+      break;
+    }
+    if(!p2){
+      mergedList.next = p1;
+      break;
+    }
+
+    if(p1.val < p2.val){
+      mergedList.next = p1;
+      p1 = p1.next;
+      mergedList = mergedList.next;
+    } else {
+      mergedList.next = p2;
+      p2 = p2.next;
+      mergedList = mergedList.next;
+    }
+  }
+  return mergedListHead;
 };
+
+// time: 22 min
 
 module.exports = {ListNode, mergeTwoLists};

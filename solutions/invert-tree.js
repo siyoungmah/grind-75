@@ -52,7 +52,7 @@ const invertTree = function (root) {
   if(!root) return null;
   if(root.left) invertTree(root.left);
   if(root.right) invertTree(root.right);
-  if(!root.left && !root.right) return;
+  if(!root.left && !root.right) return root;
 
   const temp = root.left;
   root.left = root.right;

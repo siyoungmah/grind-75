@@ -30,4 +30,11 @@ describe('invertTree tests', () => {
     const invertedNull = invertTree();
     expect(invertedNull).toBeNull();
   });
+
+  it('works for a single node tree', () => {
+    const invertedSingleNode = invertTree(new TreeNode(1));
+    expect(invertedSingleNode.val).toEqual(1);
+    expect(invertedSingleNode.left).toBeNull();
+    expect(invertedSingleNode.right).toBeNull();
+  })
 });

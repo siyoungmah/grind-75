@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "test-solo": "bash ./scripts/run-test.sh"
+    "test-solo": "bash ./scripts/run-test.sh",
+    "ts": "bash ./scripts/compile-ts.sh"
   },
   "repository": {
     "type": "git",

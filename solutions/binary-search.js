@@ -43,7 +43,6 @@ const binarySearch = function(nums, target) {
     else return midIndex + index;
   }
   else return binarySearch(nums.slice(0, midIndex), target);
-
 };
 
 module.exports = {binarySearch};

@@ -39,7 +39,37 @@ newInterval.length == 2
  * @return {number[][]}
  */
 var insertInterval = function(intervals: number[][], newInterval:number[]): number[][] {
-    
+  // break it down into two steps
+  // step 1: insertion
+  // step 2: merges
+
+  // step 1: insertion
+  // iterate through the array, and add the newInterval in the appropriate spot
+  if(intervals.length === 0) return [newInterval];
+  for(let i: number = 0; i < intervals.length; i++){
+    if(newInterval[0] <= intervals[i][0]){
+      if(newInterval[0] === intervals[i][0]){
+        if(newInterval[1] > intervals[i][1]) intervals.splice(i + 1, 0, newInterval);
+        break;
+      }
+      else{
+        intervals.splice(i, 0, newInterval)
+        break;
+      } 
+    }
+    if(i === intervals.length - 1) intervals.push(newInterval);
+  }
+
+  // step 2: iterate through the array and merge
+  const results: number[][] = intervals.splice(0, 1);
+  for(let i: number = 0; i < intervals.length; i++){
+    if(results[results.length - 1][1] >= intervals[i][0]){
+      results[results.length - 1][1] = Math.max(results[results.length - 1][1], intervals[i][1]);
+    }
+    else results.push(intervals[i]);
+  }
+  return results;
 };
+
 
 module.exports = {insertInterval};

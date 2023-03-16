@@ -34,32 +34,26 @@
  * Link: https://leetcode.com/problems/invert-binary-tree/
  */
 
-interface TreeType {
-  val: number,
-  left: null | TreeType,
-  right: null | TreeType
-}
-
-
 // Definition for a binary tree node.
-class TreeNode implements TreeType {
-  val: number;
-  left: null | TreeType;
-  right: null | TreeType;
+import type { TreeNode } from '../../TreeNode';
+// class TreeNode {
+//   val: number;
+//   left: null | TreeNode;
+//   right: null | TreeNode;
 
-  constructor(val: undefined | number, left?: undefined | TreeType, right?:undefined | TreeType){
-    this.val = (val === undefined ? 0 : val);
-    this.left = (!left ? null : left);
-    this.right = (!right ? null : right);
-  }
-}
+//   constructor(val?: number, left?: TreeNode, right?: TreeNode){
+//     this.val = (val === undefined ? 0 : val);
+//     this.left = (!left ? null : left);
+//     this.right = (!right ? null : right);
+//   }
+// }
 
 /**
  * @param {TreeNode} root
  * @return {TreeNode}
  */
-const invertTree = function(root: TreeType): TreeType {
+const invertTree = function(root: TreeNode | null): TreeNode | null {
 
 };
 
-module.exports = { invertTree, TreeNode };
+module.exports = { invertTree };

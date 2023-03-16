@@ -4,9 +4,11 @@
     "target": "ES2022",
     "module": "commonjs",
     "noImplicitAny": true,
-    "strict": true
+    "strict": true,
+    "esModuleInterop": true
   },
   "include": [
-    "solutions"],
+    "solutions"
+  ],
   "exclude": ["node_modules"]
 }

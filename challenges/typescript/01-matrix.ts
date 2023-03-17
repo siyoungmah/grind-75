@@ -37,7 +37,7 @@ There is at least one 0 in mat.
  * @param {number[][]} mat
  * @return {number[][]}
  */
-const updateMatrix = function(mat) {
+const updateMatrix = function(mat: number[][]): number[][] {
     
 };
 

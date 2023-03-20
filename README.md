@@ -26,4 +26,7 @@ TS:
 - Day 4: [bst-lowest-common-ancestor](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/) (Easy, 20min), [insert-interval](https://leetcode.com/problems/insert-interval/) (Medium, 25 min) 
 - Day 5: [01-matrix](https://leetcode.com/problems/01-matrix/) (Medium, 30 min)
 
+### Week 1
+- Day 1: [queue-stacks](https://leetcode.com/problems/implement-queue-using-stacks/) (Easy, 20 min), [first-bad-version](https://leetcode.com/problems/first-bad-version/) (Easy, 20 min)
+
 

@@ -28,5 +28,5 @@ TS:
 
 ### Week 1
 - Day 1: [queue-stacks](https://leetcode.com/problems/implement-queue-using-stacks/) (Easy, 20 min), [first-bad-version](https://leetcode.com/problems/first-bad-version/) (Easy, 20 min)
-
+- Day 2: [three-sum](https://leetcode.com/problems/3sum/) (Medium, 30 min)
 

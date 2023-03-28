@@ -61,39 +61,24 @@ var search = function(nums, target, index = 0) {
   // console.log('=================================');
   // console.log('LeftARR: ', nums.slice(0, midIndex));
   // console.log('RightArr: ', nums.slice(midIndex));
-  // if arrays are perfectly swapped
-  if(leftMax > rightMin){
-    // reverse the decision
-    console.log('reverse');
-    if(target < leftMin) return search(nums.slice(midIndex), target, index + midIndex);
-    else return search(nums.slice(0, midIndex), target, index);
-  }
   
-  // check to see if left arr is the mixed arr
-  if(leftMin > leftMax){
-    console.log('goind left!');
-    console.log(nums.slice(0, midIndex));
-    console.log(index)
-    if(target >= leftMin || target <= leftMax) return search(nums.slice(0, midIndex), target, index);
-  }
-  // check to see if right arr is the mixed arr
-  if(rightMin > rightMax){
-    console.log('going right!')
-    console.log(nums.slice(midIndex));
-    if(target >= rightMin || target <= rightMax) return search(nums.slice(midIndex), target, index + midIndex);
-  }
-  if(target <= leftMax){
-    console.log('left');
-    console.log(nums.slice(0, midIndex));
-    return search(nums.slice(0, midIndex), target, index);
-  } 
-  if(target > leftMax){
-    console.log('right');
-    console.log(nums.slice(midIndex));
-    return search(nums.slice(midIndex), target, index + midIndex);
-  }
+  // if arrays are perfectly swapped
+  // if(leftMax > rightMin){
+  //   // reverse the decision
+  //   console.log('reverse');
+  //   if(target < leftMin) return search(nums.slice(midIndex), target, index + midIndex);
+  //   else return search(nums.slice(0, midIndex), target, index);
+  // }
+
+  // is it in left Arr?
+  if(target <= leftMax && target >= leftMin) return search(nums.slice(0, midIndex), target, index);
+  else if(target <= rightMax && target >= rightMin) return search(nums.slice(midIndex), target, index + midIndex);
+  else if(leftMin > leftMax) return search(nums.slice(0, midIndex), target, index);
+  else return search(nums.slice(midIndex), target, index + midIndex);
+  
 }
 
-// console.log(search([5, 1, 3], 1));
-// console.log(search([4,5,6,7,0,1,2], 0));
-console.log(search([4,5,6,7,0,1,2], 1));
+console.log(search([5, 1, 3], 1)); // 1
+console.log(search([5, 1, 3], 0)); // 1
+console.log(search([4,5,6,7,0,1,2], 0)); // 4
+console.log(search([4,5,6,7,0,1,2], 1)); // 5

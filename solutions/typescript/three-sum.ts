@@ -42,8 +42,34 @@ Constraints:
  * @param {number[]} nums
  * @return {number[][]}
  */
-var threeSum = function(nums: number[]): number[][] {
+var threeSum = function(nums: number[], target: number): number[][] {
+  // const cache: {[index: number]: {}} = {};
+  // const results: number[][] = [];
+  // // iterate through the input array using two pointers
+  // for(let i:number = 0; i < nums.length - 1; i++){
+  //   for(let j:number = i + 1; j < nums.length; j++){
+  //     const key:number = target - (nums[i] + nums[j]);
+  //     // if(cache[nums[j]]) results.push([key, nums[i], nums[j]]);
+  //     // else if(!Object.hasOwn(cache, key)){
+  //     //   cache[key] = { [nums[i]]: nums[i], [nums[j]]: nums[j] }; 
+  //     // }
+  //     if(Object.hasOwn(cache, key)){
+  //       // console.log(cache);
+  //       // console.log('key: ', key, ', i: ', nums[i], ', j: ', nums[j]);
+  //       if((key === nums[i] || key === nums[j])) results.push([key, nums[i], nums[j]]);
+  //       else if(cache[nums[i]] || cache[nums[j]]) break;
+  //       else results.push([key,nums[i], nums[j]]);
+  //     }
+  //   }
+  //   cache[nums[i]] = true;
+  // }
+  // return results;
+  const findTriplets = function(arr: number[], target: number): number[] {
     
+  }
 };
 
+console.log(threeSum([0,0,0,0], 0));
+console.log(threeSum([12, 3, 1, 2, -6, 5, -8, 6], 0));
+console.log(threeSum([-1,0,1,2,-1,-4], 0));
 module.exports = {threeSum};

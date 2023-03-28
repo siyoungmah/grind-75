@@ -58,19 +58,6 @@ var search = function(nums, target, index = 0) {
   const rightMin = nums[midIndex];
   const rightMax = nums[nums.length - 1];  
 
-  // console.log('=================================');
-  // console.log('LeftARR: ', nums.slice(0, midIndex));
-  // console.log('RightArr: ', nums.slice(midIndex));
-  
-  // if arrays are perfectly swapped
-  // if(leftMax > rightMin){
-  //   // reverse the decision
-  //   console.log('reverse');
-  //   if(target < leftMin) return search(nums.slice(midIndex), target, index + midIndex);
-  //   else return search(nums.slice(0, midIndex), target, index);
-  // }
-
-  // is it in left Arr?
   if(target <= leftMax && target >= leftMin) return search(nums.slice(0, midIndex), target, index);
   else if(target <= rightMax && target >= rightMin) return search(nums.slice(midIndex), target, index + midIndex);
   else if(leftMin > leftMax) return search(nums.slice(0, midIndex), target, index);

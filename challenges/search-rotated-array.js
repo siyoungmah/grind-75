@@ -43,29 +43,40 @@ nums is an ascending array that is possibly rotated.
  * @param {number} target
  * @return {number}
  */
-var search = function(nums, target, index = 0) {
+var search = function(nums, target) {
   // merge sort divide through half of the array each time
   // keep track of indices (starting index)
   // when cut into left & right, check min & max to determine which half to pursue
   
-  // base cases
-  if(nums.length === 1) return (nums[0] === target) ? index : -1;
-  
-  // divide
-  const midIndex = Math.ceil(nums.length / 2);
-  const leftMin = nums[0];
-  const leftMax = nums[midIndex - 1];
-  const rightMin = nums[midIndex];
-  const rightMax = nums[nums.length - 1];  
+  // helper function to binary search through the array without creating more arrays
+  const searchWithIndex = (start, end) => {
+    console.log(nums.slice(start, end));
+    if(end - start === 1) return (nums[start] === target) ? start : -1;
 
-  if(target <= leftMax && target >= leftMin) return search(nums.slice(0, midIndex), target, index);
-  else if(target <= rightMax && target >= rightMin) return search(nums.slice(midIndex), target, index + midIndex);
-  else if(leftMin > leftMax) return search(nums.slice(0, midIndex), target, index);
-  else return search(nums.slice(midIndex), target, index + midIndex);
-  
+    const midIndex = Math.floor((start + end) / 2);
+    const leftMin = nums[start];
+    const leftMax = nums[midIndex - 1];
+    const rightMin = nums[midIndex];
+    const rightMax = nums[end - 1];
+
+    // check for normal left, normal right conditions first
+    // then, check if left is a mixed array, if not, right is the mixed array
+    if(target <= leftMax && target >= leftMin) return searchWithIndex(start, midIndex);
+    else if(target <= rightMax && target >= rightMin) return searchWithIndex(midIndex, end);
+    else if(leftMin > leftMax) return searchWithIndex(start, midIndex);
+    else return searchWithIndex(midIndex, end);
+  }
+
+  return searchWithIndex(0, nums.length);
 }
 
-console.log(search([5, 1, 3], 1)); // 1
-console.log(search([5, 1, 3], 0)); // 1
-console.log(search([4,5,6,7,0,1,2], 0)); // 4
-console.log(search([4,5,6,7,0,1,2], 1)); // 5
+// console.log(search([5, 1, 3], 1)); // 1
+// console.log(search([5, 1, 3], 0)); // -1
+// console.log(search([4,5,6,7,0,1,2], 0)); // 4
+// console.log(search([0,1,2,4,5,6,7], 1)); // 5
+// console.log(search([1,2,4,5,6,7,0], 1)); // 5
+// console.log(search([2,4,5,6,7,0,1], 1)); // 5
+// console.log(search([4,5,6,7,0,1,2], 1)); // 5
+// console.log(search([5,6,7,0,1,2,4], 1)); // 5
+// console.log(search([6,7,0,1,2,4,5], 1)); // 5
+// console.log(search([7,0,1,2,4,5,6], 1)); // 5

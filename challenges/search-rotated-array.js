@@ -70,7 +70,7 @@ var search = function(nums, target) {
   return searchWithIndex(0, nums.length);
 }
 
-// console.log(search([5, 1, 3], 1)); // 1
+console.log(search([5, 1, 3], 1)); // 1
 // console.log(search([5, 1, 3], 0)); // -1
 // console.log(search([4,5,6,7,0,1,2], 0)); // 4
 // console.log(search([0,1,2,4,5,6,7], 1)); // 5

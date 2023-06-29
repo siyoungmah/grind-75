@@ -39,26 +39,51 @@
 /**
  * @param {number} capacity
  */
-function LRUCache(capacity) {
-    
+class LRUCache {
+  constructor(capacity) {
+    this.cache = new Map(); // Maps are like objects, but they keep order
+    this.capacity = capacity;
+  }
+
+  get(key) {
+    if (!this.cache.has(key)) return -1;
+
+    const v = this.cache.get(key);
+    this.cache.delete(key);
+    this.cache.set(key, v);
+    return this.cache.get(key);
+  }
+
+  // 3, 3
+  put(key, value) {
+    // if the key already exist
+    if (this.cache.has(key)) {
+      this.cache.delete(key);
+    }
+    this.cache.set(key, value);
+
+    // if cache's size is at capacity
+    if (this.cache.size > this.capacity) {
+      // console.log(this.cache.keys());
+      // console.log(this.cache.keys().next());
+      this.cache.delete(this.cache.keys().next().value);  // keys().next().value returns first item's key
+    }
+  }
 }
 
-/** 
- * @param {number} key
- * @return {number}
- */
-LRUCache.prototype.get = function(key) {
-    
-};
-
-/** 
- * @param {number} key 
- * @param {number} value
- * @return {void}
- */
-LRUCache.prototype.put = function(key, value) {
-    
-};
+// TESTING 
+const cache = new LRUCache(2);
+cache.put(1,1);
+console.log(cache);
+cache.put(2,2);
+console.log(cache);
+cache.get(1);
+console.log(cache);
+cache.put(3,3);
+console.log(cache.get(2));
+console.log(cache);
+cache.put(1,1);
+console.log(cache);
 
 /** 
  * Your LRUCache object will be instantiated and called as such:
